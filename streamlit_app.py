@@ -20,3 +20,5 @@ with st.echo(code_location='below'):
     uploaded_file = st.file_uploader("从文件创建测试数据")
     column_ms = st.multiselect("生成项目", ["姓名", "年龄", "身份证号码", "性别"])
     generate_button = st.button("生成")
+
+    st.write('已选择', column_ms)
