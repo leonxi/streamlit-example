@@ -18,5 +18,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 with st.echo(code_location='below'):
     uploaded_file = st.file_uploader("从文件创建测试数据")
-    name_button = st.button("人名")
-    age_button = st.button("年龄")
+    column_ms = st.multiselect("生成项目", ["姓名", "年龄", "身份证号码", "性别"])
+    generate_button = st.button("生成")
