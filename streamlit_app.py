@@ -18,3 +18,5 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 with st.echo(code_location='below'):
     uploaded_file = st.file_uploader("从文件创建测试数据")
+    name_button = st.button("人名")
+    age_button = st.button("年龄")
