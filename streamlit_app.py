@@ -32,7 +32,7 @@ queryParam = {
     "reportId": "简历来源渠道分析",
     "tenantId": "0255b450ecf8139fcd3e0bc38584666d"
 }
-response = requests.post(queryUrl, queryParam)
+response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
 df = pd.read_json(data['data'], index=[0])
