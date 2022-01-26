@@ -24,6 +24,6 @@ position = st.selectbox("职位", ["Java后端软件工程师", "全栈软件工
 
 arr = np.random.normal(1, 1, size=100)
 fig, ax = plt.subplots()
-ax.pie(arr)
+ax.pie(x = arr)
 
 st.pyplot(fig)
