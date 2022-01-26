@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import requests
 from io import StringIO
+import json
 
 """
 # 使用 Streamlit! 构建 渠道来源分析报表
@@ -32,11 +33,11 @@ queryParam = {
     "tenantId": "0255b450ecf8139fcd3e0bc38584666d"
 }
 response = requests.post(queryUrl, queryParam)
-print(response.text)
-df = pd.read_json(StringIO(response.text), dtype=object)
+data = json.loads(response.text)
+st.json(data)
+df = pd.read_json(data['data'], index=[0])
 
-arr = df['data']
 fig, ax = plt.subplots()
-ax.pie(x = arr)
+ax.pie(x = df)
 
 st.pyplot(fig)
