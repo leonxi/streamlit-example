@@ -22,7 +22,7 @@ daterange = st.date_input("投递时间", (datetime.date(2022, 1, 1), datetime.d
 channel = st.selectbox("渠道", ["BOSS直聘", "51Job", "58同城"])
 position = st.selectbox("职位", ["Java后端软件工程师", "全栈软件工程师"])
 
-arr = np.random.normal(1, 1, size=100)
+arr = np.random.randint(0,10,5)
 fig, ax = plt.subplots()
 ax.pie(x = arr)
 
