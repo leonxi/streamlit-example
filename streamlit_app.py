@@ -26,9 +26,9 @@ position = st.selectbox("职位", ["Java后端软件工程师", "全栈软件工
 # 读取数据
 queryUrl = "http://116.63.135.62:8006/api/jasper/jasper/query/query"
 queryParam = {
-    filters: [],
-    reportId: "简历来源渠道分析",
-    tenantId: "0255b450ecf8139fcd3e0bc38584666d"
+    "filters": [],
+    "reportId": "简历来源渠道分析",
+    "tenantId": "0255b450ecf8139fcd3e0bc38584666d"
 }
 response = requests.post(queryUrl, queryParam)
 df = pd.read_json(StringIO(response.text))
