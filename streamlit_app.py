@@ -32,7 +32,7 @@ queryParam = {
     "tenantId": "0255b450ecf8139fcd3e0bc38584666d"
 }
 response = requests.post(queryUrl, queryParam)
-df = pd.read_json(StringIO(response.text))
+df = pd.read_json(StringIO(response.text), index=[0])
 
 arr = df['data']
 fig, ax = plt.subplots()
