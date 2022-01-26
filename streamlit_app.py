@@ -35,7 +35,7 @@ queryParam = {
 response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
-df = pd.read_json(data['data'])
+df = pd.read_json(data['data'], typ="series", orient="records")
 
 fig, ax = plt.subplots()
 ax.pie(x = df)
