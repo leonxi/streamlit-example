@@ -32,6 +32,7 @@ queryParam = {
     "tenantId": "0255b450ecf8139fcd3e0bc38584666d"
 }
 response = requests.post(queryUrl, queryParam)
+print(response.text)
 df = pd.read_json(StringIO(response.text), dtype=object)
 
 arr = df['data']
