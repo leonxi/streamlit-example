@@ -15,6 +15,9 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+daterange = st.date_input("投递时间", (from = datetime.date(2022, 1, 1), to = datetime.date(2022, 1, 26)))
+channel = st.selectbox("渠道")
+position = st.selectbox("职位")
 
 with st.echo(code_location='below'):
     uploaded_file = st.file_uploader("从文件创建测试数据")
