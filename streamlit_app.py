@@ -7,6 +7,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 import requests
+from io import StringIO
 
 """
 # 使用 Streamlit! 构建 渠道来源分析报表
