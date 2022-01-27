@@ -45,7 +45,7 @@ if data['code'] == 200:
     destDir = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
     assert not os.path.isabs(source)
     try:
-       shutil.copy(source, target)
+       shutil.copy(source, destDir)
     except IOError as e:
        print("Unable to copy file. %s" % e)
     except:
