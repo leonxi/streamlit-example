@@ -35,7 +35,7 @@ queryParam = {
 response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
-if data['code'] == 200
+if data['code'] == 200:
     df = pd.DataFrame(data['data'])
 
     fig, ax = plt.subplots()
