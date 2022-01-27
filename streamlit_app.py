@@ -35,6 +35,8 @@ queryParam = {
 response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
+st.write(plt.matplotlib_fname())
+
 if data['code'] == 200:
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
