@@ -3,4 +3,4 @@ pandas
 streamlit
 matplotlib
 numpy
-shutil
+pytest-shutil
