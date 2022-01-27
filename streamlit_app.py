@@ -36,7 +36,7 @@ response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
 if data['code'] == 200:
-    df = pd.DataFrame([x['value'] for x in data['data']], [x['key'] for x in data['data']])
+    df = pd.DataFrame([x['value'] for x in data['data']], columns=[x['key'] for x in data['data']])
 
     fig, ax = plt.subplots()
     ax.pie(x = df)
