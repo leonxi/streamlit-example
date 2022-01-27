@@ -10,6 +10,8 @@ import numpy as np
 import requests
 from io import StringIO
 import json
+import os
+import shutil
 
 """
 # 使用 Streamlit! 构建 渠道来源分析报表
@@ -39,6 +41,16 @@ st.json(data)
 st.write(matplotlib.matplotlib_fname())
 
 if data['code'] == 200:
+    source = "SimHei.ttf"
+    destDir = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
+    assert not os.path.isabs(source)
+    try:
+       shutil.copy(source, target)
+    except IOError as e:
+       print("Unable to copy file. %s" % e)
+    except:
+       print("Unexpected error:", sys.exc_info())
+       
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
     plt.rcParams['font.family']=['sans-serif']
