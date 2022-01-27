@@ -4,6 +4,7 @@ import math
 import datetime
 import pandas as pd
 import streamlit as st
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import requests
@@ -35,7 +36,7 @@ queryParam = {
 response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
-st.write(plt.matplotlib_fname())
+st.write(matplotlib.matplotlib_fname())
 
 if data['code'] == 200:
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
