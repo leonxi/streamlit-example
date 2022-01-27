@@ -59,7 +59,7 @@ if data['code'] == 200:
         except:
            print("Unexpected error:", sys.exc_info())
 
-        shutil.rmtree(matplotlib.get_cachedir(), ignore_errors=True)
+    shutil.rmtree(matplotlib.get_cachedir(), ignore_errors=True)
 
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
