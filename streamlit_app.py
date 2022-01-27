@@ -45,7 +45,8 @@ if data['code'] == 200:
     target = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
     assert not os.path.isabs(source)
     target = os.path.join(target, os.path.dirname(source))
-    os.makedirs(target)
+    if not os.path.exists(target):
+        os.makedirs(target)
 
     try:
        shutil.copy(source, target)
