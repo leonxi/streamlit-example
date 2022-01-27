@@ -38,6 +38,7 @@ st.json(data)
 if data['code'] == 200:
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
+    plt.rcParams['font.family']=['sans-serif']
     plt.rcParams['font.sans-serif']=['KaiTi', 'SimHei', 'FangSong']
     plt.rcParams['axes.unicode_minus'] = False
     fig, ax = plt.subplots()
