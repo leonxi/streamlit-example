@@ -43,18 +43,23 @@ st.write(matplotlib.matplotlib_fname())
 if data['code'] == 200:
     source = "SimHei.ttf"
     target = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
+    ttfFile = os.path.join(target, source)
     assert not os.path.isabs(source)
-    target = os.path.join(target, os.path.dirname(source))
-    st.write(os.listdir(target))
-    if not os.path.exists(target):
-        os.makedirs(target)
 
-    try:
-       shutil.copy(source, target)
-    except IOError as e:
-       print("Unable to copy file. %s" % e)
-    except:
-       print("Unexpected error:", sys.exc_info())
+    if not os.path.exists(ttfFile):
+        target = os.path.join(target, os.path.dirname(source))
+        st.write(os.listdir(target))
+        if not os.path.exists(target):
+            os.makedirs(target)
+
+        try:
+           shutil.copy(source, target)
+        except IOError as e:
+           print("Unable to copy file. %s" % e)
+        except:
+           print("Unexpected error:", sys.exc_info())
+
+        os.removedirs(matplotlib.get_cachedir())
 
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
