@@ -38,7 +38,7 @@ queryParam = {
 response = requests.post(queryUrl, json=queryParam)
 data = json.loads(response.text)
 st.json(data)
-st.write(matplotlib.matplotlib_fname())
+#st.write(matplotlib.matplotlib_fname())
 
 if data['code'] == 200:
     source = "SimHei.ttf"
