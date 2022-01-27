@@ -10,7 +10,7 @@ import numpy as np
 import requests
 from io import StringIO
 import json
-import os
+import os, sys
 import shutil
 
 """
@@ -50,7 +50,7 @@ if data['code'] == 200:
        print("Unable to copy file. %s" % e)
     except:
        print("Unexpected error:", sys.exc_info())
-       
+
     df = pd.Series([x['value'] for x in data['data']], index=[x['key'] for x in data['data']])
 
     plt.rcParams['font.family']=['sans-serif']
