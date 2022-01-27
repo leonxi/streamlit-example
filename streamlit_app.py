@@ -42,10 +42,13 @@ st.write(matplotlib.matplotlib_fname())
 
 if data['code'] == 200:
     source = "SimHei.ttf"
-    destDir = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
+    target = "/home/appuser/venv/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf"
     assert not os.path.isabs(source)
+    target = os.path.join(target, os.path.dirname(source))
+    os.makedirs(target)
+
     try:
-       shutil.copy(source, destDir)
+       shutil.copy(source, target)
     except IOError as e:
        print("Unable to copy file. %s" % e)
     except:
